@@ -17,10 +17,11 @@ class MenuController
         # display the main menu options on the command line
         puts "Main Menu - #{address_book.entries.count} entries"
         puts "1 - View all entries"
-        puts "2 - Create an entry"
-        puts "3 - Search for an entry"
-        puts "4 - Import entries from a CSV"
-        puts "5 - EXIT"
+        puts "2 - View Entry Number n"
+        puts "3 - Create an entry"
+        puts "4 - Search for an entry"
+        puts "5 - Import entries from a CSV"
+        puts "6 - EXIT"
         puts "Enter your selection: "
         
         # use 'gets' to read user input from command line
@@ -34,17 +35,21 @@ class MenuController
                 main_menu
             when 2
                 system "clear"
-                create_entry
+                view_entry_number_n
                 main_menu
             when 3
                 system "clear"
-                search_entries
+                create_entry
                 main_menu
             when 4
                 system "clear"
-                read_csv
+                search_entries
                 main_menu
             when 5
+                system "clear"
+                read_csv
+                main_menu
+            when 6
                 puts "Good-bye!"
                 # use 'exit' to exit the program, and '0' shutdown the program without an error
                 exit(0)
@@ -69,6 +74,19 @@ class MenuController
         
         system "clear"
         puts "End of entries"
+    end
+        
+    def view_entry_number_n
+        print "Enter number: "
+        # use ''.to_i' change string to int
+        n = gets.chomp.to_i
+        unless n < address_book.entries.count
+            system "clear"
+            puts "#{n} is not a valid input, please try again."
+            view_entry_number_n
+        else
+        puts "#{address_book.entries[n - 1]}"
+        end
     end
         
     def create_entry
