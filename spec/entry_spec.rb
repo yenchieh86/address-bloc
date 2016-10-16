@@ -1,11 +1,19 @@
+# access entry file
 require_relative '../models/entry'
 
+# the standard first line for RSpec test file, and access Entry class
 RSpec.describe Entry do
+    # use describe for test structure, and access to Entry's attrubutes
     describe "attributes" do
+        # initialize the Entry
         let(:entry) { Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')}
         
+        # each 'it' represents a unique test
+        # a test's start from 'it'
         it "responds to name" do
+            # a test's end at 'expect'
             expect(entry).to respond_to(:name)
+        # a command end at 'end'
         end
         
         it "reports its name" do
