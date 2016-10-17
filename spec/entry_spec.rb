@@ -5,7 +5,7 @@ require_relative '../models/entry'
 RSpec.describe Entry do
     # use describe for test structure, and access to Entry's attrubutes
     describe "attributes" do
-        # initialize the Entry
+        # create new instance 'entry' and assign an initialize data for the Entry to it
         let(:entry) { Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')}
         
         # each 'it' represents a unique test
