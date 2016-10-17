@@ -38,7 +38,7 @@ class AddressBook
         entries.delete_at(index)
     end
     
-    # use 'File.read' to load information from file, and trancefer file into  CSV format
+    # use 'File.read' to load information from file, and the file need to be in  CSV format
     # use 'csv' class to parse the file
     def import_from_csv(file_name)
         # implementation
