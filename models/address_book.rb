@@ -81,4 +81,22 @@ class AddressBook
         # will return nil if didn't find any match
         return nil
     end
+    
+    # the stub for iterative_search
+    def iterative_search(name)
+        lower = 0
+        upper = entries.length - 1
+        
+        while lower <= upper
+            array_name = entries[lower].name
+            
+            if name == array_name
+                return entries[lower]
+            else lower += 1
+            end
+        end
+        
+        return nil
+    end
+    
 end
