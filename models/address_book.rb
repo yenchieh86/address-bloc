@@ -38,7 +38,7 @@ class AddressBook
         entries.delete_at(index)
     end
     
-    # use 'File.read' to load information from file, and trancefer file into  CSV format
+    # use 'File.read' to load information from file, and the file need to be in  CSV format
     # use 'csv' class to parse the file
     def import_from_csv(file_name)
         # implementation
@@ -55,4 +55,30 @@ class AddressBook
         end
     end
     
+    # the stub of binary_search
+    # try to search AddressBook for specific entry by name
+    def binary_search(name)
+        # store the beginning and end of the array index into lower and upper variable
+        lower = 0
+        upper = entries.length - 1
+        
+        # use loop on entries from AddressBook
+        while lower <= upper
+            # put the middle element from array into mid_name
+            mid = (lower + upper) / 2
+            mid_name = entries[mid].name
+            
+            # comparing name (input) to mid_name (from array)
+            if name == mid_name
+                return entries[mid]
+            elsif name < mid_name
+                upper = mid - 1
+            elsif name > mid_name
+                lower = mid + 1
+            end
+        end
+        
+        # will return nil if didn't find any match
+        return nil
+    end
 end
