@@ -221,6 +221,25 @@ class MenuController
         address_book.entries.delete(entry)
         puts "#{entry.name} has been deleted"
     end
+    
+    def detonate
+        puts "Are you sure want to delete all entries? Y/N"
+        choice = gets.chomp
+        if !choice.empty?
+            choice = choice.capitalize
+            case choice
+                when "Y"
+                    system "clear"
+                    address_book.entries.clear
+                    puts "No more entry data"
+                when "N"
+                    system "clear"
+                    main_menu
+                else
+                    puts "#{choice} is not a valid input"
+            end
+        end
+    end
 
     def edit_entry(entry)
        # steps for letting user to input informations
@@ -239,4 +258,5 @@ class MenuController
        puts "Updated entry: "
        puts entry
     end
+    
 end
